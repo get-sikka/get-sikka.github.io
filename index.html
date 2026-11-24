@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIKKA ($SIKA) — Scarce, Transparent, Peer-to-Peer Digital Currency</title>
+  <meta
+    name="description"
+    content="Sikka ($SIKA) is a scarce, transparent, peer-to-peer sound-money digital currency with an immutable 40,000,000 SIKA hard cap, 8 decimals (Siki/Sikk/Sikka), and verified public Ethereum Sepolia contract."
+  />
+  <meta name="theme-color" content="#060709" />
+  <link rel="icon" type="image/jpeg" href="./assets/1000278374.jpg" />
+
+  <!-- Institutional Typography: Space Grotesk, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="bg-grid-veil" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       Header Navigation
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="./index.html" class="brand-lockup" aria-label="SIKKA Home">
+        <img
+          src="./assets/1000278374.jpg"
+          alt="Sikka Hexagonal Emblem"
+          class="logo-blend brand-emblem"
+          width="32"
+          height="32"
+          onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='inline-flex';}"
+        />
+        <span class="logo-fallback brand-emblem" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="32" height="32" fill="none">
+            <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" stroke="#D4AF37" stroke-width="4" fill="#060709" />
+            <path d="M42 22H26L20 26L44 38L38 42H22" stroke="#D4AF37" stroke-width="4.5" stroke-linecap="square" />
+          </svg>
+        </span>
+
+        <img
+          src="./assets/1000278467.png"
+          alt="SIKKA"
+          class="logo-blend brand-wordmark"
+          width="87"
+          height="19"
+          onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='inline-flex';}"
+        />
+        <span class="logo-fallback mono text-gold" style="font-weight:700;letter-spacing:0.14em;font-size:0.95rem;" aria-hidden="true">
+          SIKKA
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#denominations" class="nav-link">Unit System</a>
+        <a href="#contract" class="nav-link">Verification</a>
+        <a href="#tokenomics" class="nav-link">Tokenomics</a>
+        <a href="#roadmap" class="nav-link">Roadmap</a>
+        <a href="./whitepaper.html" class="nav-link">Whitepaper</a>
+      </nav>
+
+      <div class="nav-actions">
+        <span class="wallet-pill" data-wallet-pill hidden></span>
+        <a href="./whitepaper.html" class="btn btn-ghost btn-sm btn-whitepaper-desktop">Whitepaper v1.0</a>
+        <button type="button" class="btn btn-primary btn-sm btn-connect-desktop" data-connect-wallet>
+          Connect Wallet
+        </button>
+        <button
+          type="button"
+          id="nav-toggle"
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="#architecture" class="mobile-nav-link">Sound-Money Architecture</a>
+    <a href="#denominations" class="mobile-nav-link">Unit System &amp; Converter</a>
+    <a href="#contract" class="mobile-nav-link">Sepolia Contract Verification</a>
+    <a href="#tokenomics" class="mobile-nav-link">Supply &amp; Tokenomics</a>
+    <a href="#roadmap" class="mobile-nav-link">Deployment Roadmap</a>
+    <a href="./whitepaper.html" class="mobile-nav-link">Whitepaper v1.0</a>
+    <div class="mobile-nav-actions">
+      <button type="button" class="btn btn-primary" data-connect-wallet>Connect Wallet</button>
+      <button type="button" class="btn btn-secondary" data-add-sika>Add $SIKA to MetaMask</button>
+    </div>
+  </div>
+
+  <main>
+    <!-- ====================================================================
+         Hero Section
+         ==================================================================== -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badges">
+            <span class="badge badge--live">
+              <span class="status-dot" aria-hidden="true"></span>
+              Ethereum Sepolia Testnet Live &amp; Verified
+            </span>
+            <span class="badge badge--gold">
+              Upcoming Primary Mainnet: BNB Smart Chain (BEP-20)
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Sound Digital Money,<br />
+            <span class="hero-title-accent">Fixed Forever at 40M.</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            <strong>Sikka ($SIKA)</strong> is a scarce, transparent, peer-to-peer digital currency
+            built on immutable OpenZeppelin ERC-20 and ERC20Burnable primitives—with zero inflation,
+            zero transfer taxes, and zero administrative backdoors.
+          </p>
+
+          <div class="hero-cta">
+            <button type="button" class="btn btn-primary" data-add-sika>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="2" y="6" width="20" height="14" rx="2" />
+                <path d="M16 13h2" />
+                <path d="M2 10h20" />
+              </svg>
+              Add $SIKA to MetaMask
+            </button>
+            <a href="./whitepaper.html" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="8" y1="13" x2="16" y2="13" />
+                <line x1="8" y1="17" x2="13" y2="17" />
+              </svg>
+              Read Whitepaper v1.0
+            </a>
+            <button type="button" class="btn btn-ghost" data-open-contract-modal>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              Inspect Sikka.sol
+            </button>
+          </div>
+
+          <div class="hero-metrics" role="region" aria-label="Core Monetary Parameters">
+            <div class="hero-metric">
+              <div class="hero-metric-label">Immutable Hard Cap</div>
+              <div class="hero-metric-value">40,000,000 SIKA</div>
+              <div class="hero-metric-sub">0% inflation · No mint()</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Indivisible Precision</div>
+              <div class="hero-metric-value">8 Decimals</div>
+              <div class="hero-metric-sub">4,000,000,000,000,000 Siki</div>
+            </div>
+            <div class="hero-metric">
+              <div class="hero-metric-label">Protocol Friction</div>
+              <div class="hero-metric-value">0% Transfer Tax</div>
+              <div class="hero-metric-sub">No pause · No blacklist</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Showcase: Vault Emblem & On-Chain Proof Summary -->
+        <aside class="hero-showcase" aria-label="Verified Sepolia Contract Summary">
+          <div class="showcase-header">
+            <span class="showcase-tag">Protocol Verification Vault</span>
+            <span class="badge badge--live" style="padding:4px 10px;font-size:10.5px;">
+              <span class="status-dot" aria-hidden="true"></span>
+              Verified On-Chain
+            </span>
+          </div>
+
+          <div class="emblem-stage">
+            <svg class="emblem-dial" viewBox="0 0 240 240" fill="none" aria-hidden="true">
+              <circle cx="120" cy="120" r="114" stroke="rgba(212, 175, 55, 0.22)" stroke-width="1" stroke-dasharray="3 6" />
+              <circle cx="120" cy="120" r="98" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1" />
+            </svg>
+            <img
+              src="./assets/1000278374.jpg"
+              alt="Sikka Gold Hexagonal S Emblem"
+              class="logo-blend hero-emblem-img"
+              width="204"
+              height="204"
+              onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='inline-flex';}"
+            />
+            <span class="logo-fallback" style="width:204px;height:204px;" aria-hidden="true">
+              <svg viewBox="0 0 120 120" width="180" height="180" fill="none">
+                <polygon points="60,8 108,35 108,85 60,112 12,85 12,35" stroke="#D4AF37" stroke-width="5" fill="#060709" />
+                <path d="M82 40H44L32 48L88 72L76 80H38" stroke="#D4AF37" stroke-width="7" stroke-linecap="square" />
+              </svg>
+            </span>
+          </div>
+
+          <div class="showcase-ledger">
+            <div class="ledger-row">
+              <span class="ledger-key">Contract</span>
+              <span class="ledger-val">
+                <span>0x4Ee5...eb0A</span>
+                <button
+                  type="button"
+                  class="btn btn-ghost btn-icon"
+                  data-copy="0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A"
+                  aria-label="Copy contract address"
+                >
+                  <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-key">Network</span>
+              <span class="ledger-val">Ethereum Sepolia (11155111)</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-key">Deployment Block</span>
+              <span class="ledger-val">12197105</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-key">Compiler</span>
+              <span class="ledger-val">v0.8.34+commit.80d5c536</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Sound-Money Architecture Pillars
+         ==================================================================== -->
+    <section id="architecture" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">01 / Monetary Architecture</span>
+          <h2 class="section-title">Engineered as Neutral, Unencumbered Settlement Money</h2>
+          <p class="section-desc">
+            Every line of <code>Sikka.sol</code> is intentionally minimal. By eliminating privileged
+            roles, discretionary minting, and transfer taxes, Sikka behaves predictably like digital
+            commodity money.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card card--interactive">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="11" width="18" height="11" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <h3 class="card-title">Hard-Capped Genesis</h3>
+            <p class="card-text">
+              <code>MAX_SUPPLY</code> is fixed at <code>40,000,000 * 10 ** 8</code> at deployment.
+              No external or internal minting function exists anywhere in the contract.
+            </p>
+            <div class="pillar-stat">0% Annual Inflation</div>
+          </article>
+
+          <article class="card card--interactive">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <h3 class="card-title">Zero Admin Backdoors</h3>
+            <p class="card-text">
+              No <code>Ownable</code> admin keys, no transfer pausing, no address blacklists, and no
+              hidden fee setters. Every address interacts under identical consensus rules.
+            </p>
+            <div class="pillar-stat">Immutable Execution</div>
+          </article>
+
+          <article class="card card--interactive">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2c1 4-2 6-2 10a4 4 0 0 0 8 0c0-3-2-5-2-8 2 1 5 4 5 9a9 9 0 1 1-18 0c0-4 3-7 9-11z" />
+              </svg>
+            </div>
+            <h3 class="card-title">Voluntary Burn Deflation</h3>
+            <p class="card-text">
+              Built with OpenZeppelin <code>ERC20Burnable</code>, enabling any holder to permanently
+              retire tokens via <code>burn()</code> or <code>burnFrom()</code> on-chain.
+            </p>
+            <div class="pillar-stat">Supply Strictly Decreasing</div>
+          </article>
+
+          <article class="card card--interactive">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M17 1l4 4-4 4" />
+                <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+                <path d="M7 23l-4-4 4-4" />
+                <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+              </svg>
+            </div>
+            <h3 class="card-title">0% Transfer Friction</h3>
+            <p class="card-text">
+              Transfers settle atomically without buy, sell, or wallet-to-wallet tax deductions,
+              preserving full composability across wallets, DEXs, and payment rails.
+            </p>
+            <div class="pillar-stat">100% Net Settlement</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Denomination System & Exact BigInt Unit Converter
+         ==================================================================== -->
+    <section id="denominations" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">02 / Unit System (Siki → Sikk → Sikka)</span>
+          <h2 class="section-title">Three-Tier Denomination &amp; Exact BigInt Converter</h2>
+          <p class="section-desc">
+            With 8 decimal places (<code>10^8</code> base units), Sikka scales cleanly from treasury
+            reserves down to sub-cent retail commerce. Every conversion executes using deterministic
+            <code>BigInt</code> integer math with zero floating-point drift.
+          </p>
+        </div>
+
+        <div class="converter-shell">
+          <div class="converter-grid">
+            <div class="unit-box">
+              <div class="unit-header">
+                <label for="input-sikka" class="unit-name">Sikka</label>
+                <span class="unit-ratio">1.00000000 SIKA</span>
+              </div>
+              <div class="unit-input-wrap">
+                <input
+                  id="input-sikka"
+                  type="text"
+                  inputmode="decimal"
+                  class="unit-input"
+                  data-unit-input="sikka"
+                  value="1"
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-label="Amount in Sikka (SIKA)"
+                />
+                <span class="unit-ticker">SIKA</span>
+              </div>
+              <p class="unit-usecase">
+                Trading, savings &amp; treasury accounting (<code>100,000,000 Siki</code>).
+              </p>
+            </div>
+
+            <div class="unit-box">
+              <div class="unit-header">
+                <label for="input-sikk" class="unit-name">Sikk</label>
+                <span class="unit-ratio">100 Sikk = 1 SIKA</span>
+              </div>
+              <div class="unit-input-wrap">
+                <input
+                  id="input-sikk"
+                  type="text"
+                  inputmode="decimal"
+                  class="unit-input"
+                  data-unit-input="sikk"
+                  value="100"
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-label="Amount in Sikk"
+                />
+                <span class="unit-ticker">SIKK</span>
+              </div>
+              <p class="unit-usecase">
+                Everyday retail pricing &amp; P2P payments (<code>0.01000000 SIKA</code>).
+              </p>
+            </div>
+
+            <div class="unit-box">
+              <div class="unit-header">
+                <label for="input-siki" class="unit-name">Siki</label>
+                <span class="unit-ratio">10^-8 SIKA (Base)</span>
+              </div>
+              <div class="unit-input-wrap">
+                <input
+                  id="input-siki"
+                  type="text"
+                  inputmode="numeric"
+                  class="unit-input"
+                  data-unit-input="siki"
+                  value="100000000"
+                  autocomplete="off"
+                  spellcheck="false"
+                  aria-label="Amount in Siki"
+                />
+                <span class="unit-ticker">SIKI</span>
+              </div>
+              <p class="unit-usecase">
+                Smallest indivisible unit for micro-transactions (<code>0.00000001 SIKA</code>).
+              </p>
+            </div>
+          </div>
+
+          <div class="cap-gauge-wrap" aria-hidden="true">
+            <div class="cap-gauge-track">
+              <div id="converter-cap-bar" class="cap-gauge-fill"></div>
+            </div>
+          </div>
+
+          <div class="converter-toolbar">
+            <div class="preset-group" aria-label="Unit Presets">
+              <span class="preset-label">Presets:</span>
+              <button type="button" class="btn btn-secondary btn-sm" data-unit-preset="100000000">1 SIKA</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-unit-preset="1000000">1 Sikk</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-unit-preset="1">1 Siki</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-unit-preset="100000000000">1,000 SIKA</button>
+              <button type="button" class="btn btn-secondary btn-sm" data-unit-preset="4000000000000000">40M Max Cap</button>
+            </div>
+
+            <div class="converter-meta">
+              <span id="converter-exact-readout">1.00000000 SIKA (100,000,000 Siki)</span>
+              <span class="text-gold" id="converter-share-readout">0.0000% of 40M Cap</span>
+            </div>
+          </div>
+
+          <div id="converter-feedback" class="converter-feedback" role="alert" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Verified Public Testnet Contract & Web3 Panel
+         ==================================================================== -->
+    <section id="contract" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">03 / Verified On-Chain Proof</span>
+          <h2 class="section-title">Ethereum Sepolia Testnet Verification</h2>
+          <p class="section-desc">
+            Inspect the publicly verified contract deployment on Ethereum Sepolia before the
+            upcoming BNB Smart Chain (BEP-20) primary mainnet launch.
+          </p>
+        </div>
+
+        <div class="invariant-strip" aria-label="Verified Smart Contract Guarantees">
+          <span class="invariant-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            0 Mint Functions
+          </span>
+          <span class="invariant-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            0 Owner / Admin Keys
+          </span>
+          <span class="invariant-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            0% Buy / Sell / Transfer Tax
+          </span>
+          <span class="invariant-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            No Pause or Blacklist
+          </span>
+          <span class="invariant-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+            OpenZeppelin v5.5.0 ERC20Burnable
+          </span>
+        </div>
+
+        <div class="contract-layout">
+          <div class="spec-table-wrap">
+            <table class="spec-table" aria-label="Verified Sepolia Contract Specifications">
+              <tbody>
+                <tr>
+                  <th scope="row">Network</th>
+                  <td>Ethereum Sepolia Testnet (Chain ID: 11155111 / 0xaa36a7)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Contract Name &amp; Symbol</th>
+                  <td>Sikka (SIKA)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Verified Contract Address</th>
+                  <td>
+                    <div class="inline-copy-row">
+                      <span>0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A</span>
+                      <button
+                        type="button"
+                        class="btn btn-ghost btn-icon"
+                        data-copy="0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A"
+                      >
+                        <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                        <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span data-copy-label>Copy</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Deployment Block</th>
+                  <td>12197105</td>
+                </tr>
+                <tr>
+                  <th scope="row">Creation Tx Hash</th>
+                  <td>
+                    <div class="inline-copy-row">
+                      <span>0x222296c09fa4d60cb444f2d4e37564292695f1658cc75c2234153bc25819d2eb</span>
+                      <button
+                        type="button"
+                        class="btn btn-ghost btn-icon"
+                        data-copy="0x222296c09fa4d60cb444f2d4e37564292695f1658cc75c2234153bc25819d2eb"
+                      >
+                        <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" />
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                        <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                        <span data-copy-label>Copy</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Compiler Version</th>
+                  <td>v0.8.34+commit.80d5c536 (Optimization: Disabled · EVM: default)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Base Dependencies</th>
+                  <td>OpenZeppelin Contracts v5.5.0 (ERC20 + ERC20Burnable)</td>
+                </tr>
+                <tr>
+                  <th scope="row">Verification Timestamp</th>
+                  <td>2026-11-23T17:24:07Z · Full Verification (MIT License)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside class="card card--gold web3-panel">
+            <div>
+              <span class="badge badge--live" style="margin-bottom:14px;">
+                <span class="status-dot" aria-hidden="true"></span>
+                EIP-1193 Web3 Controls
+              </span>
+              <h3 class="card-title">Wallet &amp; Sepolia RPC Verification</h3>
+              <p class="card-text" style="margin-bottom:18px;">
+                Connect MetaMask to switch to Ethereum Sepolia, register <code>$SIKA</code> with
+                its official emblem, or verify <code>totalSupply()</code> directly on-chain.
+              </p>
+
+              <div class="web3-status-box">
+                <div class="web3-status-line">
+                  <span class="text-muted">Account</span>
+                  <span id="web3-account-status" class="mono">Not connected</span>
+                </div>
+                <div class="web3-status-line">
+                  <span class="text-muted">Active Network</span>
+                  <span id="web3-network-status" class="mono">Not Connected</span>
+                </div>
+                <div class="web3-status-line">
+                  <span class="text-muted">Your Sepolia Balance</span>
+                  <span id="web3-balance-status" class="mono tabular">—</span>
+                </div>
+                <div class="web3-status-line">
+                  <span class="text-muted">On-Chain Supply</span>
+                  <span id="live-supply-readout" class="mono tabular">40,000,000.00000000 SIKA</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="web3-actions">
+              <button type="button" class="btn btn-primary" data-add-sika>
+                Add $SIKA to MetaMask
+              </button>
+              <div class="grid-2" style="gap:10px;">
+                <button type="button" class="btn btn-secondary btn-sm" data-connect-wallet>
+                  Connect Wallet
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm" data-switch-sepolia>
+                  Switch to Sepolia
+                </button>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" data-verify-supply>
+                Query Live totalSupply() via Sepolia RPC
+              </button>
+              <div class="grid-2" style="gap:10px;">
+                <a
+                  href="https://eth-sepolia.blockscout.com/address/0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-ghost btn-sm"
+                >
+                  Blockscout
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+                <a
+                  href="https://sepolia.etherscan.io/address/0x4ee5467857407ff4741271bbba3f15c1e981eb0a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-ghost btn-sm"
+                >
+                  Etherscan
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Inline Contract Source Preview -->
+        <div class="source-preview">
+          <div class="source-preview-bar">
+            <div class="source-preview-meta">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.8" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+              <span class="mono" style="font-size:0.86rem;font-weight:600;">contracts/Sikka.sol</span>
+              <span class="badge badge--live" style="padding:4px 10px;">Verified Match · 17 Lines</span>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button type="button" class="btn btn-secondary btn-sm" data-copy-source>
+                <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span data-copy-label>Copy Source</span>
+              </button>
+              <button type="button" class="btn btn-ghost btn-sm" data-open-contract-modal>
+                Expand Viewer
+              </button>
+              <a href="./contracts/Sikka.sol" download="Sikka.sol" class="btn btn-ghost btn-sm">
+                Download .sol
+              </a>
+            </div>
+          </div>
+          <pre id="inline-contract-code" class="code-block" aria-label="Sikka.sol verified source code"></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Tokenomics & Supply Framework
+         ==================================================================== -->
+    <section id="tokenomics" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">04 / Supply &amp; Tokenomics</span>
+          <h2 class="section-title">Fixed 40,000,000 SIKA Genesis Supply</h2>
+          <p class="section-desc">
+            Total issuance is permanently capped in bytecode. Below is the verified supply rule
+            alongside an editable draft allocation framework prepared for the BNB Smart Chain
+            (BEP-20) mainnet launch.
+          </p>
+        </div>
+
+        <div class="notice-banner" style="margin-bottom:28px;">
+          <span class="badge badge--draft">Draft Allocation · Editable</span>
+          <div>
+            <strong>Transparency Note:</strong> On the live Ethereum Sepolia testnet, 100% of test
+            tokens were minted to the deployer address (<code>1</code> on-chain holder) for public
+            verification. The mainnet distribution tiers below are editable planning placeholders to
+            be finalized and timelocked prior to BNB Smart Chain deployment.
+          </div>
+        </div>
+
+        <div class="tokenomics-grid">
+          <div class="card donut-card">
+            <div class="donut-stage" role="img" aria-label="Sikka draft allocation ring chart totaling 40,000,000 SIKA">
+              <!-- Circumference for r=112 is ~703.7168 -->
+              <svg id="tokenomics-svg" class="donut-svg" viewBox="0 0 286 286">
+                <!-- 50% (351.86) -->
+                <circle class="donut-segment" data-alloc-index="0" cx="143" cy="143" r="112" stroke="#D4AF37" stroke-dasharray="348 703.72" stroke-dashoffset="0" />
+                <!-- 20% (140.74) -->
+                <circle class="donut-segment" data-alloc-index="1" cx="143" cy="143" r="112" stroke="#9F8228" stroke-dasharray="137 703.72" stroke-dashoffset="-351.86" />
+                <!-- 15% (105.56) -->
+                <circle class="donut-segment" data-alloc-index="2" cx="143" cy="143" r="112" stroke="#625224" stroke-dasharray="102 703.72" stroke-dashoffset="-492.60" />
+                <!-- 10% (70.37) -->
+                <circle class="donut-segment" data-alloc-index="3" cx="143" cy="143" r="112" stroke="#475569" stroke-dasharray="67 703.72" stroke-dashoffset="-598.16" />
+                <!-- 5% (35.19) -->
+                <circle class="donut-segment" data-alloc-index="4" cx="143" cy="143" r="112" stroke="#2D3748" stroke-dasharray="31.5 703.72" stroke-dashoffset="-668.53" />
+              </svg>
+
+              <div class="donut-center">
+                <img
+                  src="./assets/1000278374.jpg"
+                  alt="Sikka Emblem"
+                  class="logo-blend donut-badge-img"
+                  width="70"
+                  height="70"
+                  onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='inline-flex';}"
+                />
+                <span class="logo-fallback" style="width:64px;height:64px;margin-bottom:6px;" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" width="56" height="56" fill="none">
+                    <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" stroke="#D4AF37" stroke-width="4" fill="#060709" />
+                    <path d="M42 22H26L20 26L44 38L38 42H22" stroke="#D4AF37" stroke-width="4.5" stroke-linecap="square" />
+                  </svg>
+                </span>
+                <div class="donut-cap-value">40,000,000</div>
+                <div class="donut-cap-sub">MAX SIKA CAP</div>
+              </div>
+            </div>
+            <p class="donut-footnote">
+              Fixed at genesis · <code>0%</code> inflation · Voluntary burn via <code>ERC20Burnable</code>
+            </p>
+          </div>
+
+          <div class="allocation-list">
+            <div class="allocation-row" data-alloc-index="0" tabindex="0">
+              <div class="allocation-top">
+                <span class="allocation-name">
+                  <span class="swatch" style="background:#D4AF37;"></span>
+                  Public Liquidity &amp; Circulation
+                </span>
+                <span class="allocation-nums">50% · 20,000,000 SIKA</span>
+              </div>
+              <div class="allocation-bar"><div class="allocation-bar-fill" style="width:50%;background:#D4AF37;"></div></div>
+              <p class="allocation-desc">
+                Open-market liquidity provisioning and peer-to-peer circulation (Draft Target).
+              </p>
+            </div>
+
+            <div class="allocation-row" data-alloc-index="1" tabindex="0">
+              <div class="allocation-top">
+                <span class="allocation-name">
+                  <span class="swatch" style="background:#9F8228;"></span>
+                  Ecosystem &amp; Merchant Adoption
+                </span>
+                <span class="allocation-nums">20% · 8,000,000 SIKA</span>
+              </div>
+              <div class="allocation-bar"><div class="allocation-bar-fill" style="width:20%;background:#9F8228;"></div></div>
+              <p class="allocation-desc">
+                Open-source payment integrations, retail Sikk checkout tools, and ecosystem grants (Draft Target).
+              </p>
+            </div>
+
+            <div class="allocation-row" data-alloc-index="2" tabindex="0">
+              <div class="allocation-top">
+                <span class="allocation-name">
+                  <span class="swatch" style="background:#625224;"></span>
+                  Protocol Treasury Reserve
+                </span>
+                <span class="allocation-nums">15% · 6,000,000 SIKA</span>
+              </div>
+              <div class="allocation-bar"><div class="allocation-bar-fill" style="width:15%;background:#625224;"></div></div>
+              <p class="allocation-desc">
+                Multi-signature reserve with verifiable public address disclosure (Draft Target).
+              </p>
+            </div>
+
+            <div class="allocation-row" data-alloc-index="3" tabindex="0">
+              <div class="allocation-top">
+                <span class="allocation-name">
+                  <span class="swatch" style="background:#475569;"></span>
+                  Core Engineering &amp; Security Audits
+                </span>
+                <span class="allocation-nums">10% · 4,000,000 SIKA</span>
+              </div>
+              <div class="allocation-bar"><div class="allocation-bar-fill" style="width:10%;background:#475569;"></div></div>
+              <p class="allocation-desc">
+                Protocol maintenance, independent contract audits, and open-source infrastructure (Draft Target).
+              </p>
+            </div>
+
+            <div class="allocation-row" data-alloc-index="4" tabindex="0">
+              <div class="allocation-top">
+                <span class="allocation-name">
+                  <span class="swatch" style="background:#2D3748;"></span>
+                  Early Contributors
+                </span>
+                <span class="allocation-nums">5% · 2,000,000 SIKA</span>
+              </div>
+              <div class="allocation-bar"><div class="allocation-bar-fill" style="width:5%;background:#2D3748;"></div></div>
+              <p class="allocation-desc">
+                Time-locked contributor allocation with scheduled transparent vesting (Draft Target).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         Roadmap
+         ==================================================================== -->
+    <section id="roadmap" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">05 / Deployment Roadmap</span>
+          <h2 class="section-title">From Public Sepolia Proof to BNB Smart Chain Mainnet</h2>
+          <p class="section-desc">
+            Structured execution focused on contract immutability first, followed by low-fee
+            peer-to-peer settlement on BNB Smart Chain (BEP-20). Phases 2–4 contain editable target
+            milestones.
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          <article class="card card--gold roadmap-card">
+            <div>
+              <div class="roadmap-rail" aria-hidden="true">
+                <span class="roadmap-node roadmap-node--done"></span>
+                <span class="roadmap-line"></span>
+              </div>
+              <div class="roadmap-phase">
+                <span class="roadmap-step">Phase 01</span>
+                <span class="badge badge--live">Completed</span>
+              </div>
+              <h3 class="card-title">Sepolia Genesis &amp; Verification</h3>
+              <ul class="roadmap-list">
+                <li>Minimal <code>Sikka.sol</code> authored with OpenZeppelin v5.5.0.</li>
+                <li>Deployed at Sepolia block <code>12197105</code>.</li>
+                <li>Full source verification published on Blockscout.</li>
+                <li>Open-source repository, Whitepaper v1.0 &amp; Web3 portal.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card roadmap-card">
+            <div>
+              <div class="roadmap-rail" aria-hidden="true">
+                <span class="roadmap-node roadmap-node--active"></span>
+                <span class="roadmap-line"></span>
+              </div>
+              <div class="roadmap-phase">
+                <span class="roadmap-step">Phase 02</span>
+                <span class="badge badge--gold">In Progress</span>
+              </div>
+              <h3 class="card-title">Security &amp; Allocation Lock</h3>
+              <ul class="roadmap-list">
+                <li>Independent pre-mainnet invariant &amp; bytecode audit.</li>
+                <li>Finalize BEP-20 distribution &amp; multisig custody rules.</li>
+                <li>Public Sepolia MetaMask &amp; <code>burn()</code> integration testing.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card roadmap-card">
+            <div>
+              <div class="roadmap-rail" aria-hidden="true">
+                <span class="roadmap-node"></span>
+                <span class="roadmap-line"></span>
+              </div>
+              <div class="roadmap-phase">
+                <span class="roadmap-step">Phase 03</span>
+                <span class="badge badge--draft">Target Q1 2027</span>
+              </div>
+              <h3 class="card-title">BNB Smart Chain Mainnet</h3>
+              <ul class="roadmap-list">
+                <li>Deploy identical immutable contract on BSC (BEP-20).</li>
+                <li>Publish verified BscScan contract &amp; genesis tx proof.</li>
+                <li>Deploy transparent liquidity &amp; treasury timelocks.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card roadmap-card">
+            <div>
+              <div class="roadmap-rail" aria-hidden="true">
+                <span class="roadmap-node"></span>
+                <span class="roadmap-line" style="opacity:0.25;"></span>
+              </div>
+              <div class="roadmap-phase">
+                <span class="roadmap-step">Phase 04</span>
+                <span class="badge badge--draft">Target Q2+ 2027</span>
+              </div>
+              <h3 class="card-title">Merchant &amp; P2P Tooling</h3>
+              <ul class="roadmap-list">
+                <li>Lightweight invoice &amp; QR checkout denominated in <code>Sikk</code>.</li>
+                <li>Wallet icon &amp; explorer token registry submissions.</li>
+                <li>Open SDK utilities for self-custodial commerce.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       Footer
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img
+            src="./assets/1000278467.png"
+            alt="SIKKA"
+            class="logo-blend footer-wordmark"
+            width="115"
+            height="25"
+            onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='inline-flex';}"
+          />
+          <span class="logo-fallback mono text-gold" style="font-weight:700;letter-spacing:0.14em;font-size:1.1rem;margin-bottom:14px;" aria-hidden="true">
+            SIKKA
+          </span>
+          <p class="card-text" style="max-width:340px;">
+            A scarce, transparent, peer-to-peer sound-money digital currency. Fixed 40,000,000 SIKA
+            supply, 8 decimals (Siki / Sikk / Sikka), MIT licensed open-source software.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Protocol</h4>
+          <ul class="footer-links">
+            <li><a href="#architecture">Sound-Money Architecture</a></li>
+            <li><a href="#denominations">Siki · Sikk · Sikka Converter</a></li>
+            <li><a href="#tokenomics">Supply &amp; Tokenomics</a></li>
+            <li><a href="./whitepaper.html">Whitepaper v1.0</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Verified Proof</h4>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://eth-sepolia.blockscout.com/address/0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sepolia Blockscout ↗
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://sepolia.etherscan.io/address/0x4ee5467857407ff4741271bbba3f15c1e981eb0a"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Sepolia Etherscan ↗
+              </a>
+            </li>
+            <li><a href="./contracts/Sikka.sol">contracts/Sikka.sol</a></li>
+            <li><a href="./README.md">Repository README</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Project Links (Editable)</h4>
+          <ul class="footer-links">
+            <!-- TODO: Replace placeholder links with your published GitHub & contact links -->
+            <li><a href="https://github.com/your-org/sikka" target="_blank" rel="noopener noreferrer">GitHub Repository (Placeholder) ↗</a></li>
+            <li><a href="mailto:contact@sikka-protocol.example">contact@sikka-protocol.example</a></li>
+            <li><a href="./LICENSE">MIT Open-Source License</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sikka ($SIKA) Contributors · Released under the MIT License.</span>
+        <span>
+          Disclosure: Currently live on Ethereum Sepolia Testnet only. No public mainnet token or
+          secondary market trading exists yet.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       Smart Contract Code Modal
+       ====================================================================== -->
+  <div
+    id="contract-modal"
+    class="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-contract-title"
+    hidden
+  >
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="source-preview-meta">
+          <h3 id="modal-contract-title" class="modal-title">contracts/Sikka.sol</h3>
+          <span class="badge badge--live">Sepolia Verified · v0.8.34</span>
+        </div>
+        <button type="button" class="btn btn-ghost btn-sm" data-close-modal aria-label="Close source viewer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre id="modal-contract-code" class="code-block"></pre>
+      </div>
+      <div class="modal-footer">
+        <span class="mono text-muted" style="font-size:0.78rem;">
+          0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A · Block 12197105
+        </span>
+        <div style="display:flex;gap:8px;">
+          <button type="button" class="btn btn-secondary btn-sm" data-copy-source>
+            <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span data-copy-label>Copy Source</span>
+          </button>
+          <a
+            href="https://eth-sepolia.blockscout.com/address/0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A#code"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-sm"
+          >
+            View on Blockscout ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="./js/app.js"></script>
+</body>
+</html>

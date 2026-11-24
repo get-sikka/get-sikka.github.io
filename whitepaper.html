@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIKKA ($SIKA) Whitepaper v1.0 — Sound-Money Architecture &amp; Technical Specification</title>
+  <meta
+    name="description"
+    content="Official SIKKA ($SIKA) Whitepaper v1.0 covering monetary thesis, Siki-Sikk-Sikka denomination design, verified Ethereum Sepolia ERC-20 + ERC20Burnable specification, and BNB Smart Chain roadmap."
+  />
+  <meta name="theme-color" content="#060709" />
+  <link rel="icon" type="image/jpeg" href="./assets/1000278374.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <div class="bg-grid-veil" aria-hidden="true"></div>
+
+  <!-- ======================================================================
+       Header Navigation (Hidden in Print)
+       ====================================================================== -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="./index.html" class="brand-lockup" aria-label="SIKKA Home">
+        <img
+          src="./assets/1000278374.jpg"
+          alt="Sikka Hexagonal Emblem"
+          class="logo-blend brand-emblem"
+          width="32"
+          height="32"
+          onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='inline-flex';}"
+        />
+        <span class="logo-fallback brand-emblem" aria-hidden="true">
+          <svg viewBox="0 0 64 64" width="32" height="32" fill="none">
+            <polygon points="32,4 58,19 58,45 32,60 6,45 6,19" stroke="#D4AF37" stroke-width="4" fill="#060709" />
+            <path d="M42 22H26L20 26L44 38L38 42H22" stroke="#D4AF37" stroke-width="4.5" stroke-linecap="square" />
+          </svg>
+        </span>
+
+        <img
+          src="./assets/1000278467.png"
+          alt="SIKKA"
+          class="logo-blend brand-wordmark"
+          width="87"
+          height="19"
+          onerror="this.style.display='none';if(this.nextElementSibling){this.nextElementSibling.style.display='inline-flex';}"
+        />
+        <span class="logo-fallback mono text-gold" style="font-weight:700;letter-spacing:0.14em;font-size:0.95rem;" aria-hidden="true">
+          SIKKA
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="./index.html" class="nav-link">Overview</a>
+        <a href="./index.html#denominations" class="nav-link">Unit Converter</a>
+        <a href="./index.html#contract" class="nav-link">Verification</a>
+        <a href="./whitepaper.html" class="nav-link is-active">Whitepaper v1.0</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="btn btn-secondary btn-sm btn-whitepaper-desktop" data-print-whitepaper>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
+          Print / Save PDF
+        </button>
+        <a href="./index.html" class="btn btn-primary btn-sm btn-connect-desktop">Back to Portal</a>
+        <button
+          type="button"
+          id="nav-toggle"
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-nav"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="./index.html" class="mobile-nav-link">Portal Overview</a>
+    <a href="./index.html#denominations" class="mobile-nav-link">BigInt Unit Converter</a>
+    <a href="./index.html#contract" class="mobile-nav-link">Sepolia Contract Proof</a>
+    <a href="#abstract" class="mobile-nav-link">1. Abstract</a>
+    <a href="#contract-spec" class="mobile-nav-link">4. Smart Contract Spec</a>
+    <a href="#testnet-proof" class="mobile-nav-link">5. Verified Testnet Proof</a>
+    <div class="mobile-nav-actions">
+      <button type="button" class="btn btn-primary" data-print-whitepaper>Print / Export PDF</button>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       Whitepaper Document Header
+       ====================================================================== -->
+  <section class="wp-hero">
+    <div class="container">
+      <div class="print-only-header">
+        <h1>SIKKA ($SIKA) — Technical Whitepaper v1.0</h1>
+        <p>
+          A Scarce, Transparent, Peer-to-Peer Sound-Money Digital Currency · Sepolia Contract:
+          0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A · MIT Open-Source Specification
+        </p>
+      </div>
+
+      <span class="eyebrow">Technical &amp; Monetary Specification · Version 1.0</span>
+      <h1 class="hero-title" style="max-width:860px;">
+        SIKKA (<span class="hero-title-accent">$SIKA</span>): Whitepaper v1.0
+      </h1>
+      <p class="hero-subtitle" style="max-width:760px;">
+        A Scarce, Transparent, Peer-to-Peer Sound-Money Digital Currency built with an immutable
+        40,000,000 SIKA cap, an intuitive 8-decimal retail unit hierarchy (Siki → Sikk → Sikka),
+        and zero privileged administrative controls.
+      </p>
+
+      <div class="hero-badges" style="margin-bottom:0;">
+        <span class="badge badge--live">
+          <span class="status-dot" aria-hidden="true"></span>
+          Sepolia Verified · Block 12197105
+        </span>
+        <span class="badge badge--gold">Hard Cap: 40,000,000 SIKA</span>
+        <span class="badge">Decimals: 8 (4,000,000,000,000,000 Siki)</span>
+        <span class="badge">License: MIT</span>
+      </div>
+
+      <div class="wp-meta-strip">
+        <div class="wp-meta-cell">
+          <div class="wp-meta-label">Document Revision</div>
+          <div class="wp-meta-val">v1.0 · November 2026</div>
+        </div>
+        <div class="wp-meta-cell">
+          <div class="wp-meta-label">Standard</div>
+          <div class="wp-meta-val">ERC-20 + ERC20Burnable</div>
+        </div>
+        <div class="wp-meta-cell">
+          <div class="wp-meta-label">Live Environment</div>
+          <div class="wp-meta-val">Sepolia (11155111)</div>
+        </div>
+        <div class="wp-meta-cell">
+          <div class="wp-meta-label">Target Mainnet</div>
+          <div class="wp-meta-val">BNB Smart Chain (BEP-20)</div>
+        </div>
+      </div>
+
+      <div class="wp-actions no-print">
+        <button type="button" class="btn btn-primary" data-print-whitepaper>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
+          Print / Export PDF
+        </button>
+        <button type="button" class="btn btn-secondary" data-open-contract-modal>
+          Inspect Sikka.sol
+        </button>
+        <a href="./index.html" class="btn btn-ghost">
+          ← Return to Main Portal
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       Whitepaper Body & Sticky Table of Contents
+       ====================================================================== -->
+  <div class="container wp-layout">
+    <aside class="wp-sidebar" aria-label="Document Table of Contents">
+      <h2 class="wp-toc-title">Contents</h2>
+      <ul class="wp-toc-list">
+        <li><a href="#abstract" class="wp-toc-link is-active">1. Abstract &amp; Thesis</a></li>
+        <li><a href="#principles" class="wp-toc-link">2. Sound-Money Principles</a></li>
+        <li><a href="#unit-hierarchy" class="wp-toc-link">3. Unit System (Siki → Sikka)</a></li>
+        <li><a href="#contract-spec" class="wp-toc-link">4. Smart Contract Architecture</a></li>
+        <li><a href="#testnet-proof" class="wp-toc-link">5. Verified Sepolia Proof</a></li>
+        <li><a href="#supply-policy" class="wp-toc-link">6. Supply &amp; Allocation Draft</a></li>
+        <li><a href="#mainnet-roadmap" class="wp-toc-link">7. BSC Mainnet &amp; Roadmap</a></li>
+        <li><a href="#disclosures" class="wp-toc-link">8. Disclosures &amp; License</a></li>
+      </ul>
+    </aside>
+
+    <article id="wp-article" class="wp-article">
+      <section id="abstract" class="wp-section">
+        <h2>1. Abstract &amp; Monetary Thesis</h2>
+        <p>
+          Programmable blockchains unlocked permissionless global settlement, yet the majority of
+          fungible EVM tokens compromise the core properties of sound money through upgradeable
+          proxies, owner-controlled minting, arbitrary transfer taxes, or freeze/blacklist hooks.
+          When monetary policy can be altered by a single multi-signature or private key, holders no
+          longer possess credible scarcity.
+        </p>
+        <p>
+          <strong>Sikka ($SIKA)</strong> returns EVM token design to strict monetary neutrality. Its
+          smart contract fixes the maximum supply once at genesis—exactly
+          <code>40,000,000 SIKA</code> (<code>4,000,000,000,000,000 Siki</code>)—on top of audited
+          OpenZeppelin <code>ERC20</code> and <code>ERC20Burnable</code> implementations. There are
+          no post-deployment mint functions, no administrative keys, and no transfer fees.
+        </p>
+        <div class="wp-callout">
+          <div class="wp-callout-title">Current Network Status Disclosure</div>
+          <p>
+            Sikka is currently live and publicly verified on the <strong>Ethereum Sepolia Testnet</strong>
+            (Contract <code>0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A</code>, Block
+            <code>12197105</code>). The upcoming primary production deployment is planned for
+            <strong>BNB Smart Chain (BEP-20)</strong>.
+          </p>
+        </div>
+      </section>
+
+      <section id="principles" class="wp-section">
+        <h2>2. Sound-Money Design Principles</h2>
+        <ul>
+          <li>
+            <strong>Verifiable Absolute Scarcity:</strong> The constant <code>MAX_SUPPLY</code>
+            (<code>40,000,000 * 10 ** 8</code>) is minted solely within the constructor. Because no
+            external or internal mint pathway exists, the upper bound of 40 million SIKA is
+            mathematically enforced by EVM bytecode.
+          </li>
+          <li>
+            <strong>Zero Privileged Control:</strong> <code>Sikka</code> inherits strictly from
+            <code>ERC20</code> and <code>ERC20Burnable</code>. There is no <code>Ownable</code>,
+            <code>AccessControl</code>, <code>Pausable</code>, or blacklist state variable.
+          </li>
+          <li>
+            <strong>Zero Friction Settlement:</strong> Every transfer executes at <code>0%</code>
+            buy, sell, and peer-to-peer fee. Receivers obtain 100% of the nominal value sent.
+          </li>
+          <li>
+            <strong>Voluntary Deflationary Capability:</strong> Through <code>ERC20Burnable</code>,
+            any holder or integration can provably destroy tokens via <code>burn(uint256)</code> or
+            <code>burnFrom(address, uint256)</code>, reducing circulating and total supply permanently.
+          </li>
+        </ul>
+      </section>
+
+      <section id="unit-hierarchy" class="wp-section">
+        <h2>3. Denomination Architecture (Siki → Sikk → Sikka)</h2>
+        <p>
+          While 18 decimals are conventional on Ethereum, high-decimal representations often create
+          unnecessary visual friction for everyday retail payments. Sikka adopts
+          <strong>8 decimal places</strong>—the same precision standard proven in commodity digital
+          money—yielding <code>4,000,000,000,000,000</code> indivisible atomic units across the
+          entire economy.
+        </p>
+
+        <table class="wp-table">
+          <thead>
+            <tr>
+              <th>Denomination</th>
+              <th>SIKA Value</th>
+              <th>Atomic Units (Siki)</th>
+              <th>Operational Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1 Sikka (SIKA)</strong></td>
+              <td class="mono">1.00000000</td>
+              <td class="mono">100,000,000 Siki</td>
+              <td>Exchange pairs, savings reserves, and treasury settlement</td>
+            </tr>
+            <tr>
+              <td><strong>1 Sikk</strong></td>
+              <td class="mono">0.01000000</td>
+              <td class="mono">1,000,000 Siki</td>
+              <td>Everyday retail pricing and peer-to-peer commerce (100 Sikk = 1 Sikka)</td>
+            </tr>
+            <tr>
+              <td><strong>1 Siki</strong></td>
+              <td class="mono">0.00000001</td>
+              <td class="mono">1 Siki</td>
+              <td>Smallest indivisible unit for micro-transactions and contract accounting</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="contract-spec" class="wp-section">
+        <h2>4. Smart Contract Architecture</h2>
+        <p>
+          Simplicity is the strongest security guarantee in smart-contract engineering. Rather than
+          introducing custom accounting loops or tax hooks, <code>contracts/Sikka.sol</code> relies
+          exclusively on OpenZeppelin Contracts v5.5.0, overriding only <code>decimals()</code> to
+          return <code>8</code>.
+        </p>
+
+        <div class="source-preview" style="margin-top:16px;">
+          <div class="source-preview-bar">
+            <span class="mono" style="font-size:0.84rem;font-weight:600;">contracts/Sikka.sol (Verified Source)</span>
+            <button type="button" class="btn btn-secondary btn-sm no-print" data-copy-source>
+              <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span data-copy-label>Copy Source</span>
+            </button>
+          </div>
+          <pre id="inline-contract-code" class="code-block"></pre>
+        </div>
+
+        <h3>4.1 Exposed ABI Surface</h3>
+        <table class="wp-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Mutability</th>
+              <th>Behavior</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">name() / symbol()</td>
+              <td class="mono">view</td>
+              <td>Returns immutable <code>"Sikka"</code> and <code>"SIKA"</code>.</td>
+            </tr>
+            <tr>
+              <td class="mono">decimals()</td>
+              <td class="mono">pure</td>
+              <td>Returns <code>8</code>.</td>
+            </tr>
+            <tr>
+              <td class="mono">MAX_SUPPLY()</td>
+              <td class="mono">view</td>
+              <td>Public constant returning <code>4000000000000000</code> (40M SIKA in Siki).</td>
+            </tr>
+            <tr>
+              <td class="mono">totalSupply() / balanceOf()</td>
+              <td class="mono">view</td>
+              <td>Standard ERC-20 supply and account ledger queries.</td>
+            </tr>
+            <tr>
+              <td class="mono">transfer() / transferFrom() / approve()</td>
+              <td class="mono">nonpayable</td>
+              <td>Standard zero-tax ERC-20 transfers and allowance management.</td>
+            </tr>
+            <tr>
+              <td class="mono">burn() / burnFrom()</td>
+              <td class="mono">nonpayable</td>
+              <td>Destroys caller or approved tokens, lowering <code>totalSupply</code> irreversibly.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="testnet-proof" class="wp-section">
+        <h2>5. Verified Public Testnet Proof</h2>
+        <p>
+          The Sikka reference contract was deployed and fully verified on Ethereum Sepolia so any
+          engineer, auditor, or wallet provider can inspect its exact compiler metadata, creation
+          bytecode, and OpenZeppelin dependency tree prior to mainnet launch.
+        </p>
+
+        <table class="wp-table">
+          <tbody>
+            <tr>
+              <th>Network</th>
+              <td class="mono">Ethereum Sepolia Testnet (Chain ID: 11155111 / 0xaa36a7)</td>
+            </tr>
+            <tr>
+              <th>Contract Address</th>
+              <td class="mono">0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A</td>
+            </tr>
+            <tr>
+              <th>Deployment Block</th>
+              <td class="mono">12197105</td>
+            </tr>
+            <tr>
+              <th>Creation Transaction</th>
+              <td class="mono" style="word-break:break-all;">0x222296c09fa4d60cb444f2d4e37564292695f1658cc75c2234153bc25819d2eb</td>
+            </tr>
+            <tr>
+              <th>Deployer Address</th>
+              <td class="mono">0x29AE486F4e94ACCD2DA11F8d4E7c2e1b5f031236</td>
+            </tr>
+            <tr>
+              <th>Compiler Version</th>
+              <td class="mono">v0.8.34+commit.80d5c536</td>
+            </tr>
+            <tr>
+              <th>Optimization / EVM</th>
+              <td class="mono">Optimization Disabled · EVM Version: default</td>
+            </tr>
+            <tr>
+              <th>Verification Timestamp</th>
+              <td class="mono">2026-11-23T17:24:07Z (Blockscout Full Verification)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="supply-policy" class="wp-section">
+        <h2>6. Supply Policy &amp; Mainnet Allocation Draft</h2>
+        <p>
+          Because <code>Sikka.sol</code> mints the entire <code>40,000,000 SIKA</code> supply inside
+          its constructor, mainnet genesis distribution is fully transparent from block zero. On the
+          Sepolia testnet, all <code>40,000,000</code> test SIKA currently reside in the deployer
+          wallet (<code>1</code> on-chain holder).
+        </p>
+        <p>
+          The allocation schedule below serves as an <strong>editable draft framework</strong> for
+          the planned BNB Smart Chain (BEP-20) deployment and should be finalized with published
+          multi-sig addresses before mainnet genesis:
+        </p>
+
+        <table class="wp-table">
+          <thead>
+            <tr>
+              <th>Category (Editable Draft)</th>
+              <th>Share</th>
+              <th>SIKA Allocation</th>
+              <th>Intended Governance / Custody</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Public Liquidity &amp; Circulation</td>
+              <td class="mono">50%</td>
+              <td class="mono">20,000,000 SIKA</td>
+              <td>Open liquidity provisioning &amp; P2P distribution</td>
+            </tr>
+            <tr>
+              <td>Ecosystem &amp; Merchant Adoption</td>
+              <td class="mono">20%</td>
+              <td class="mono">8,000,000 SIKA</td>
+              <td>Merchant invoicing tools &amp; developer grants</td>
+            </tr>
+            <tr>
+              <td>Protocol Treasury Reserve</td>
+              <td class="mono">15%</td>
+              <td class="mono">6,000,000 SIKA</td>
+              <td>Public multi-signature reserve with on-chain tracking</td>
+            </tr>
+            <tr>
+              <td>Core Engineering &amp; Audits</td>
+              <td class="mono">10%</td>
+              <td class="mono">4,000,000 SIKA</td>
+              <td>Independent security reviews &amp; infrastructure</td>
+            </tr>
+            <tr>
+              <td>Early Contributors</td>
+              <td class="mono">5%</td>
+              <td class="mono">2,000,000 SIKA</td>
+              <td>Time-locked vesting schedule</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="mainnet-roadmap" class="wp-section">
+        <h2>7. BNB Smart Chain (BEP-20) Migration &amp; Roadmap</h2>
+        <p>
+          Ethereum Sepolia serves as the public engineering and wallet-integration verification
+          environment. For primary production settlement, Sikka targets
+          <strong>BNB Smart Chain (BEP-20)</strong> due to its EVM bytecode equivalence with
+          <code>Sikka.sol</code>, low transaction fees suited to everyday <code>Sikk</code>
+          transfers, and mature wallet ecosystem.
+        </p>
+        <ol>
+          <li>
+            <strong>Phase 1 — Sepolia Testnet Proof (Completed):</strong> Reference contract
+            deployed at block <code>12197105</code> and fully verified with open-source portal and
+            Whitepaper v1.0.
+          </li>
+          <li>
+            <strong>Phase 2 — Pre-Mainnet Review (In Progress · Editable):</strong> Complete
+            independent code verification, finalize BEP-20 allocation locks, and validate MetaMask
+            integration flows.
+          </li>
+          <li>
+            <strong>Phase 3 — BSC Mainnet Genesis (Target Q1 2027 · Editable):</strong> Deploy
+            unmodified <code>Sikka.sol</code> onto BNB Smart Chain, verify on BscScan, and publish
+            immutable genesis addresses.
+          </li>
+          <li>
+            <strong>Phase 4 — Commerce &amp; SDK Tooling (Target Q2+ 2027 · Editable):</strong>
+            Release lightweight merchant checkout templates denominated in <code>Sikk</code> and
+            explorer metadata integrations.
+          </li>
+        </ol>
+      </section>
+
+      <section id="disclosures" class="wp-section">
+        <h2>8. Risk Disclosures &amp; Open-Source License</h2>
+        <p>
+          This specification is published solely for technical and informational transparency.
+          <code>$SIKA</code> on Ethereum Sepolia carries no monetary value and exists exclusively for
+          public verification and testing. Nothing in this document constitutes financial, legal,
+          or investment advice.
+        </p>
+        <p>
+          All source code, documentation, and static portal files in the Sikka repository are
+          released under the <strong>MIT License</strong> (<code>SPDX-License-Identifier: MIT</code>).
+        </p>
+      </section>
+    </article>
+  </div>
+
+  <!-- ======================================================================
+       Footer & Contract Modal
+       ====================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none;padding-top:0;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img
+            src="./assets/1000278467.png"
+            alt="SIKKA"
+            class="logo-blend"
+            width="95"
+            height="21"
+            onerror="this.style.display='none';"
+          />
+          <span>Whitepaper v1.0 · MIT License</span>
+        </div>
+        <div>
+          <a href="./index.html" class="text-gold">Return to Official Portal →</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div
+    id="contract-modal"
+    class="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-contract-title"
+    hidden
+  >
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="source-preview-meta">
+          <h3 id="modal-contract-title" class="modal-title">contracts/Sikka.sol</h3>
+          <span class="badge badge--live">Sepolia Verified · v0.8.34</span>
+        </div>
+        <button type="button" class="btn btn-ghost btn-sm" data-close-modal aria-label="Close source viewer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+          Close
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre id="modal-contract-code" class="code-block"></pre>
+      </div>
+      <div class="modal-footer">
+        <span class="mono text-muted" style="font-size:0.78rem;">
+          0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A · Block 12197105
+        </span>
+        <div style="display:flex;gap:8px;">
+          <button type="button" class="btn btn-secondary btn-sm" data-copy-source>
+            <svg class="icon-copy" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            <svg class="icon-check" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            <span data-copy-label>Copy Source</span>
+          </button>
+          <a
+            href="https://eth-sepolia.blockscout.com/address/0x4Ee5467857407FF4741271Bbba3F15C1e981eb0A#code"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary btn-sm"
+          >
+            View on Blockscout ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="./js/app.js"></script>
+</body>
+</html>
