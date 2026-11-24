@@ -143,19 +143,3 @@ This repository uses **zero build steps** (pure HTML5, CSS3, and Vanilla ES6+ Ja
 4. Click **Save**. Because `.nojekyll` is present and all links are relative, your site will work immediately at both:
    - `https://<your-username>.github.io/<repo-name>/`
    - Any custom domain configured in GitHub Pages.
-
-### Local Preview
-Serve the directory with any static HTTP server (needed for `fetch` or MetaMask injection):
-
-```bash
-python -m http.server 8080
-```
-
-Then visit `http://localhost:8080/`.
-
-### Pre-Publish Customization Checklist
-Before announcing publicly, review and replace the placeholder items in `index.html`, `whitepaper.html`, `README.md`, and `LICENSE`:
-- [ ] Replace `https://github.com/your-org/sikka` and contact email `contact@sikka-protocol.example` with your official links.
-- [ ] Update the **Draft Mainnet Allocation** percentages/vesting terms if finalizing a different distribution before BNB Smart Chain launch.
-- [ ] Update **Roadmap** target quarters if desired.
-- [ ] Update the copyright holder name in `LICENSE` if publishing under a specific legal entity or individual name.
